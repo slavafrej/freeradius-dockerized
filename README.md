@@ -95,7 +95,7 @@ docker build -t freeradius-dockerized:v1 .
 ```
 
 2. When the build is complete, you can run this container.
-   - ❗❗❗__If you have any errors during the build, please write to Issue__ ❗❗❗
+   - ❗❗❗**If you have any errors during the build, please write to Issue**❗❗❗
    - Run:
 ```
 docker run -p 1812:1812/udp -p 1813:1813/udp freeradius-dockerized -d freeradius-dockerized:v1

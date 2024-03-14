@@ -53,9 +53,9 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
    ```
    cd freeradius-dockerized
    ```
-3. You will have 4 files in front of you. 3 of which are configuration files
+3. You will have 7 files in front of you. 5 of which are configuration files
    ```
-   clients.conf  Dockerfile  radiusd.conf  users
+   authorize  ca.cnf  clients.conf  Dockerfile  radiusd.conf  README.md  server.cnf
    ```
 
    - First of all, open the clients.conf file in your favorite text editor.
@@ -76,6 +76,17 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
   
   - __Instead bob123alice123, set the strong password of your client.__
 
+
+4. In front of you are also the files ca.cnf and server.cnf. These are the configuration files for the EAP-TLS certificates. Open ca.cnf first and fill in the following fields.
+
+<img width="404" alt="Screenshot 2024-03-14 at 23 03 08" src="https://github.com/slavafrej/freeradius-dockerized/assets/75539739/8139ccfd-9777-45dc-b724-2d263dbd11f3">
+<img width="465" alt="Screenshot 2024-03-14 at 23 03 20" src="https://github.com/slavafrej/freeradius-dockerized/assets/75539739/d3c56b6e-b9c5-4505-9c8e-fae6c5e97969">
+
+5. Then open server.cnf and fill in the following fields.
+
+<img width="397" alt="Screenshot 2024-03-14 at 23 04 35" src="https://github.com/slavafrej/freeradius-dockerized/assets/75539739/27ec06fb-a485-4ec5-a398-1456d6854390">
+<img width="403" alt="Screenshot 2024-03-14 at 23 04 45" src="https://github.com/slavafrej/freeradius-dockerized/assets/75539739/735a8327-401e-4afe-81c9-f940f42bac25">
+
   *You're great. Let's move on to building.*
 # Building
 1. __In the folder where you cloned this repository__, run the following command:
@@ -87,5 +98,5 @@ docker build -t freeradius-dockerized:v1 .
    - ❗❗❗__If you have any errors during the build, please write to Issue__ ❗❗❗
    - Run:
 ```
-docker run -p 1812:1812 -p 1813:1813 freeradius-dockerized -d freeradius-dockerized:v1
+docker run -p 1812:1812/udp -p 1813:1813/udp freeradius-dockerized -d freeradius-dockerized:v1
 ```

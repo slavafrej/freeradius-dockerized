@@ -2,8 +2,7 @@ FROM ubuntu:22.04
 LABEL maintainer="root@slavafrej.ru"
 
 RUN ["apt", "update"]
-RUN ["apt", "install", "freeradius", "mariadb-server", "freeradius-utils", "freeradius-mysql", "freeradius-ldap", "-y"]
-
+RUN ["apt", "install", "freeradius", "-y"]
 COPY ./clients.conf /etc/freeradius/3.0/.
 COPY ./radiusd.conf /etc/freeradius/3.0/.
 COPY ./users /etc/freeradius/3.0/.

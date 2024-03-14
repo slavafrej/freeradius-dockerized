@@ -98,5 +98,5 @@ docker build -t freeradius-dockerized:v1 .
    - ❗❗❗**If you have any errors during the build, please write to Issue**❗❗❗
    - Run:
 ```
-docker run -p 1812:1812/udp -p 1813:1813/udp freeradius-dockerized -d freeradius-dockerized:v1
+docker run -p 1812:1812/udp -p 1813:1813/udp --name freeradius-dockerized -d freeradius-dockerized:v1
 ```
